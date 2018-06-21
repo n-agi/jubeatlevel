@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jubeat Tier</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bulma.css') }}">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<style>
+			body{
+				background-color:#FFFFFF;
+			}
+		</style>
+	</head>
+	<body class="layout-default">
+		<section class="hero is-medium has-text-centered">
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title">Jubeat Tier</h1>
+					{% if data %}
+						<h2 class="title"> <strong>{{data.nickname}}</strong>'s score : {{score}}</h2>
+						<h3 class="title"> <strong>{{tier}}</strong> </h3>
+						<img src='{{img}}' />
+					{% else %}
+						<h1>User not found!</h1>
+					{% endif %}
+					</div>
+				</div>
+			</div>		
+		</section>
+		<section class="hero is-
+	</body>
+</html>

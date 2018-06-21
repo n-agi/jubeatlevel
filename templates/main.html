@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jubeat Tier</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bulma.css') }}">
+		
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	</head>
+	<body class="layout-default">
+		<section class="hero is-medium has-text-centered">
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title">Jubeat Tier</h1>
+					<div style="margin:auto;width:50%">
+					<form method="post" action="search">
+					<div class="control">
+						<p class="control" style="max-width:600px;">
+							<input class="input" type="text" placeholder="Your Qubellinfo ID" name="uid">
+						</p><br>
+						<p class="control is-clearfix" style="margin:auto;width:88px;">
+							<input type="submit" class="button is-primary" id="search" value="Calculate">
+						</p>
+					</div>
+					</form>
+					</div>
+				</div>
+			</div>		
+		</section>
+		<hr class="is-marginless">
+		<section class="hero is-medium has-text-centered">
+	                <h1 class="title">Tier Statistics</h1>
+			<div class="hero-body">
+				<div class="container has-text-centered">
+				<div style="margin:auto;width:80%">
+					<table class="table">
+						<thead>
+							<th>Tiers</th>
+							<th>Counts</th>
+						</thead>
+						<tbody>
+							<tr><td>Challenger</td><td>{{stats.challenger}}</td></tr>
+							<tr><td>Master</td><td>{{stats.master}}</td></tr>
+							<tr><td>Diamond</td><td>{{stats.diamond}}</td></tr>
+							<tr><td>Platinum</td><td>{{stats.platinum}}</td></tr>
+							<tr><td>Gold</td><td>{{stats.gold}}</td></tr>
+							<tr><td>Silver</td><td>{{stats.silver}}</td></tr>
+							<tr><td>Bronze + Unranked</td><td>{{stats.bronze}}</td></tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+			</div>
+		</section>
+		<hr class="is-marginless">
+		<section class="hero is-medium has-text-centered">
+			<h1 class="title">Tier Details</h1>
+			<div class="hero-body">
+				<div class="container has-text-centered">
+				<div style="margin:auto;width:80%">
+				<table class="table">
+					<thead>
+						<th>User ID</th>
+						<th>User Score</th>
+						<th>Tier</th>
+					</thead>
+					<tbody>
+						{% if data %}
+							{% for row in data %}
+								<tr><td><a href="https://qubellinfo.com/{{row.uid}}">{{row.nickname}}</a></td><td>{{row.score}}</td><td>{{row.tier}}</td></tr>
+							{% endfor %}
+						{% endif%}
+					</tbody>
+				</table>
+				</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
